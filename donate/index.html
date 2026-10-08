@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#11110f">
+  <title>Donate | Box Out For Hunger</title>
+  <style>
+    :root{color-scheme:dark;--black:#11110f;--white:#f5f2eb;--orange:#ff6b35;--line:#373632;font-family:'Montserrat',Arial,sans-serif;font-weight:500;letter-spacing:.01em}
+    .hero-copy h1,.section-copy h2,.partners h2,.contact h2{font-weight:900}
+        *{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--white);text-transform:uppercase}a{color:inherit;text-decoration:none}
+    .toolbar{height:12svh;min-height:5.5rem;padding:0 clamp(1.125rem,5vw,4.5rem);display:flex;align-items:center;justify-content:space-between;border-bottom:.1875rem solid var(--orange);background:#1b1a17}
+    .brand{display:flex;align-items:center;gap:.875rem;font-size:1rem;font-weight:700;letter-spacing:.04em;line-height:1.05}.brand-mark{width:3rem;height:3rem;object-fit:contain}.brand-name small{display:block;margin-top:.375rem;color:#c3bfb5;font-size:.625rem;letter-spacing:.18em}
+    .nav{display:flex;align-items:center;gap:clamp(1rem,2.6vw,2.375rem)}.nav a{padding:.75rem .25rem;font-size:.875rem;font-weight:600;color:#e5e1d8;transition:color .2s}.nav a:hover,.nav a:focus-visible,.nav a[aria-current="page"]{color:var(--orange)}.nav a[aria-current="page"]{box-shadow:inset 0 -.1875rem var(--orange)}.nav .donate{padding:.75rem 1rem;background:var(--orange);color:var(--black);font-weight:800}.nav .donate:hover,.nav .donate:focus-visible,.nav .donate[aria-current="page"]{background:#ff8357;color:var(--black)}
+    .menu-toggle{display:none;width:3.25rem;height:3.25rem;padding:0;align-items:center;justify-content:center;border:.125rem solid #77736a;background:transparent;color:var(--white);cursor:pointer}.menu-toggle svg{width:1.625rem;height:1.625rem}
+    @media(max-aspect-ratio:1.2294/1){.toolbar{height:auto;min-height:5.75rem;padding:.75rem 1rem;background:#24221e;gap:.75rem}.brand{gap:.625rem;font-size:1rem;letter-spacing:.025em}.brand-mark{width:3rem;height:3rem}.brand-name small{margin-top:.3125rem;color:#f0ece3;font-size:.625rem;letter-spacing:.12em}.menu-toggle{display:flex;flex:none;width:3.5rem;height:3.5rem;border:.125rem solid #bcb5a8;background:#302d27}.menu-toggle svg{width:1.875rem;height:1.875rem}.nav{display:none;position:absolute;z-index:5;top:100%;left:0;right:0;padding:.75rem 1rem 1rem;background:#24221e;border-bottom:.1875rem solid var(--orange);flex-direction:column;align-items:stretch;gap:.25rem}.nav.open{display:flex}.nav a{padding:1rem .625rem;border-bottom:.0625rem solid #514d45;font-size:1.125rem;line-height:1.3;color:#fff}.nav a[aria-current="page"]{background:#38342d;box-shadow:inset .25rem 0 var(--orange);padding-left:.875rem;color:#fff}.nav .donate,.nav .donate[aria-current="page"]{margin-top:.5rem;padding:1rem;text-align:center;border:0;background:var(--orange);color:#11110f;font-size:1.125rem}}@media(max-width:42.5rem){.toolbar{position:sticky;top:0;z-index:10;height:auto;min-height:5.75rem;padding:.75rem 1rem;background:#24221e;gap:.75rem}.brand{gap:.625rem;font-size:1rem;letter-spacing:.025em}.brand-mark{width:3rem;height:3rem}.brand-name small{margin-top:.3125rem;color:#f0ece3;font-size:.625rem;letter-spacing:.12em}.menu-toggle{display:flex;flex:none;width:3.5rem;height:3.5rem;border:.125rem solid #bcb5a8;background:#302d27}.menu-toggle svg{width:1.875rem;height:1.875rem}.nav{display:none;position:absolute;z-index:5;top:100%;left:0;right:0;padding:.75rem 1rem 1rem;background:#24221e;border-bottom:.1875rem solid var(--orange);flex-direction:column;align-items:stretch;gap:.25rem}.nav.open{display:flex}.nav a{padding:1rem .625rem;border-bottom:.0625rem solid #514d45;font-size:1.125rem;line-height:1.3;color:#fff}.nav a[aria-current="page"]{background:#38342d;box-shadow:inset .25rem 0 var(--orange);padding-left:.875rem;color:#fff}.nav .donate,.nav .donate[aria-current="page"]{margin-top:.5rem;padding:1rem;text-align:center;border:0;background:var(--orange);color:#11110f;font-size:1.125rem}}
+    .hero{min-height:100svh;display:flex;align-items:center;padding:clamp(2rem,7vw,7rem);background:linear-gradient(90deg,rgba(14,14,13,.68),rgba(14,14,13,.18)),url('../hero-placeholder.svg') center/cover no-repeat}.hero-lockup{display:flex;align-items:center;gap:clamp(1.5rem,5vw,5rem);max-width:75rem;margin:auto}.hero-logo{width:clamp(8rem,22vw,19rem);aspect-ratio:1;object-fit:contain;flex:none}.hero-copy{max-width:48rem;color:#fff;text-transform:uppercase}.hero-copy h1{margin:0 0 1rem;font-size:clamp(3rem,8vw,7.5rem);line-height:.88;letter-spacing:.025em;text-shadow:0 .125rem 1rem #000}.hero-copy p{margin:0;font-size:clamp(1.25rem,2.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:.08em;text-shadow:0 .125rem .75rem #000}
+    .content-section{padding:clamp(3rem,8vw,7rem) clamp(1.25rem,8vw,8rem)}.about-section{background:#e8e3d8;color:#171613}.why-section{background:#25231f;color:#f5f2eb}.section-inner{max-width:75rem;margin:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(2rem,7vw,6rem)}.section-inner.reverse .section-copy{order:1}.section-inner.reverse .section-image{order:2}.section-copy h2{margin:0 0 1.25rem;font-size:clamp(2.5rem,5vw,4.75rem);line-height:.95;text-transform:uppercase}.section-copy p{max-width:38rem;margin:0;font-family:Arial,sans-serif;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.7;letter-spacing:0}.section-image{width:100%;aspect-ratio:4/3;object-fit:cover;border:.1875rem solid var(--orange)}
+    .partners{overflow:hidden;padding:clamp(3rem,6vw,5rem) 0;background:#d65b32;color:#171613}.partners h2{text-align:center;margin:0 1rem 2.5rem;font-size:clamp(2.5rem,5vw,4rem);text-transform:uppercase}.partner-track{display:flex;width:max-content;gap:1.5rem;animation:partner-drift 48s linear infinite}.partner-track:hover{animation-play-state:paused}.partner-card{width:clamp(12rem,21vw,20rem);height:clamp(9rem,16vw,15rem);object-fit:cover;border:.1875rem solid #171613}.partner-track-wrap{display:flex;overflow:hidden}.partner-track-group{display:flex;gap:1.5rem;padding-right:1.5rem}.partner-card{flex:none}@keyframes partner-drift{to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.partner-track{animation:none}}
+    .contact{padding:3.5rem clamp(1.25rem,8vw,8rem);background:#11110f;color:#f5f2eb;border-top:.25rem solid var(--orange)}.contact-inner{max-width:75rem;margin:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem}.contact h2{margin:0 0 1rem;font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase}.contact p{margin:.35rem 0;font-family:Arial,sans-serif;letter-spacing:0;color:#d5d2ca}.contact a{color:#ff9a75}.contact-roles{display:grid;gap:.75rem;list-style:none;margin:0;padding:0}.contact-roles li{display:grid;align-self:start;gap:.125rem;font-family:Arial,sans-serif;letter-spacing:0}.contact-roles strong{font-family:Montserrat,Arial,sans-serif;font-weight:700}.contact-roles span{color:#d5d2ca}.contact-quicklinks-title{margin:1.5rem 0 .75rem;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:.01em;text-transform:uppercase;font-weight:900;line-height:1}.contact-quicklinks{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:1rem}.contact-quicklinks a{text-decoration:underline;text-underline-offset:.2em}@media(min-width:42.5625rem){.contact-inner>div{flex:1}.contact-roles{grid-template-columns:repeat(2,minmax(0,1fr));max-width:48rem}}
+    @media(max-width:42.5rem){.hero{min-height:calc(100svh - 5.75rem);padding:1.5rem 1rem}.hero-lockup{gap:.75rem;text-align:left}.hero-logo{width:clamp(4rem,20vw,6rem)}.hero-copy{min-width:0}.hero-copy h1{font-size:clamp(2rem,9vw,3rem)}.hero-copy p{font-size:clamp(.875rem,3.7vw,1.125rem)}.section-inner{grid-template-columns:1fr;gap:1.5rem}.section-inner.reverse .section-copy,.section-inner.reverse .section-image{order:initial}.section-copy h2{font-size:2.75rem}.section-image{aspect-ratio:4/3}.partner-card{width:12rem;height:9rem}.contact-inner{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="toolbar">
+    <a class="brand" href="../" aria-label="Box Out For Hunger home"><img class="brand-mark" src="../placeholder.svg" alt=""><span class="brand-name">BOX OUT FOR HUNGER<small>LOREM IPSUM DOLOR</small></span></a>
+    <nav class="nav" id="site-nav" aria-label="Main navigation">
+      <a href="../">Home</a>
+      <a class="donate" href="../donate/">Donate</a>
+      <a href="../announcements/">Announcements</a>
+      <a href="../press/">Press</a>
+      <a href="../team/">Our Team</a>
+      <a href="../legal/">Legal</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8"/></svg>
+    </button>
+  </header>
+  <main><section class="content-section about-section" aria-labelledby="page-title"><div class="section-inner"><div class="section-copy"><h2 id="page-title">Help Feed Our Community</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div><img class="section-image" src="../placeholder.svg" alt="Placeholder image for community giving"></div></section></main>
+  <footer class="contact" id="donate">
+    <div class="contact-inner"><div><h2>Contact</h2><ul class="contact-roles"><li><strong>Carr Davis Jennings</strong><span>Founder</span><span><a href="tel:+19193767768">919-376-7768</a> · <a href="mailto:jenningscarr@gmail.com">jenningscarr@gmail.com</a></span></li><li><strong>Davis Jennings</strong><span>Legal Representative</span></li><li><strong>John Corser</strong><span>Treasurer</span></li><li><strong>Jeremiah Adeyanju</strong><span>Co-Founder</span></li><li><strong>Asher Perry</strong><span>Co-Founder</span></li><li><strong>Charles Eyster</strong><span>Co-Founder</span></li></ul><h3 class="contact-quicklinks-title">Quick Links</h3><nav class="contact-quicklinks" aria-label="Quick links"><a href="../">Home</a><a href="../donate/">Donate</a><a href="../announcements/">Announcements</a><a href="../press/">Press</a><a href="../team/">Our Team</a><a href="../legal/">Legal</a></nav></div></div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const siteNav = document.querySelector('#site-nav');
+    const updateCurrentPage = () => {
+      const selected = location.pathname.endsWith('/') ? location.pathname.slice(0, -1) || '/' : location.pathname;
+      siteNav.querySelectorAll('a').forEach(link => {
+        const linkPathname = new URL(link.href).pathname;
+        const linkPath = linkPathname.endsWith('/') ? linkPathname.slice(0, -1) || '/' : linkPathname;
+        if (linkPath === selected) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    updateCurrentPage();
+    window.addEventListener('hashchange', updateCurrentPage);
+    menuButton.addEventListener('click', () => {
+      const open = menuButton.getAttribute('aria-expanded') !== 'true';
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      siteNav.classList.toggle('open', open);
+    });
+    siteNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation menu');
+    }));
+  </script>
+</body>
+</html>
