@@ -33,7 +33,7 @@
     .hero{position:relative;isolation:isolate;margin-top:-5.75rem;min-height:110svh;overflow:hidden;padding:clamp(2rem,7vw,7rem);background:linear-gradient(90deg,#050505e8 0%,#080808a8 55%,#08080855 100%),url('hero-placeholder.svg') center/cover no-repeat}
     .hero::before{content:"";position:absolute;z-index:-1;inset:0 0 0 auto;width:min(30vw,25rem);background:linear-gradient(135deg,transparent 0 42%,#ff6b35 42% 46%,transparent 46% 52%,#ff6b352e 52% 100%);clip-path:polygon(36% 0,100% 0,100% 100%,0 100%)}
     .hero-lockup{width:100%;max-width:82rem;gap:clamp(1.5rem,5vw,5rem)}.hero-logo{width:clamp(8rem,18vw,17rem);filter:drop-shadow(0 1rem 2rem #000);transition:transform .3s ease,filter .3s ease}.hero-logo:hover{transform:translateY(-.35rem) scale(1.025);filter:drop-shadow(0 1.25rem 2rem #000)}
-    .hero-copy h1{-webkit-text-stroke:.04em #000;paint-order:stroke fill;font-size:clamp(3.7rem,10vw,9.5rem);letter-spacing:-.055em;line-height:.82;text-shadow:-.025em 0 #000,.025em 0 #000,0 -.025em #000,0 .025em #000,-.02em -.02em #000,.02em -.02em #000,-.02em .02em #000,.02em .02em #000,.01em .01em 0 #ff6b35,.02em .02em 0 #ff6b35,.03em .03em 0 #ff6b35,.04em .04em 0 #ff6b35,.05em .05em 0 #ff6b35,.06em .06em 0 #ff6b35,.07em .07em 0 #ff6b35,.08em .08em 0 #ff6b35,.09em .09em 0 #ff6b35,.1em .1em 0 #ff6b35,.11em .11em 0 #ff6b35,.12em .12em 0 #ff6b35,0 .5rem 2rem #000}
+    .hero-copy h1{-webkit-text-stroke:.04em var(--orange);paint-order:stroke fill;font-size:clamp(3.7rem,10vw,9.5rem);letter-spacing:-.055em;line-height:.82;text-shadow:-.025em 0 #000,.025em 0 #000,0 -.025em #000,0 .025em #000,-.02em -.02em #000,.02em -.02em #000,-.02em .02em #000,.02em .02em #000,.01em .01em 0 #ff6b35,.02em .02em 0 #ff6b35,.03em .03em 0 #ff6b35,.04em .04em 0 #ff6b35,.05em .05em 0 #ff6b35,.06em .06em 0 #ff6b35,.07em .07em 0 #ff6b35,.08em .08em 0 #ff6b35,.09em .09em 0 #ff6b35,.1em .1em 0 #ff6b35,.11em .11em 0 #ff6b35,.12em .12em 0 #ff6b35,0 .5rem 2rem #000}
     .hero-copy p{display:inline-block;margin-top:1rem;padding:.65rem 1rem;background:var(--orange);color:#fff;font-size:clamp(.8rem,1.6vw,1.2rem);font-weight:900;letter-spacing:.2em;transform:skew(-8deg)}
     .content-section{position:relative;padding:clamp(4rem,8vw,8rem) clamp(1.25rem,8vw,8rem);border-top:1px solid #292929}
     .about-section,.why-section{background:#0b0b0b;color:var(--white)}.about-section{background:var(--orange);color:var(--white)}.about-section .section-copy h2::before{background:#080808}.about-section .section-copy p{color:#fff}.why-section{background:linear-gradient(115deg,#151515,#080808 65%)}
@@ -70,6 +70,7 @@
     @media(max-width:42.5rem){.hero-lockup{flex-direction:column;text-align:center}.hero-logo{width:clamp(5rem,25vw,8rem)}}
   </style>
   <link rel="stylesheet" href="site-theme.css">
+  <style>main h1#hero-title{padding-left:0;-webkit-text-stroke:.06em var(--orange);text-shadow:.01em .01em 0 #ff6b35,.02em .02em 0 #ff6b35,.03em .03em 0 #ff6b35,.04em .04em 0 #ff6b35,.05em .05em 0 #ff6b35,.06em .06em 0 #ff6b35,.07em .07em 0 #ff6b35,.08em .08em 0 #ff6b35,.09em .09em 0 #ff6b35,.1em .1em 0 #ff6b35,.11em .11em 0 #ff6b35,.12em .12em 0 #ff6b35,0 .5rem 2rem #000}main h1#hero-title::before{content:none}</style>
 </head>
 <body>
   <header class="toolbar">
