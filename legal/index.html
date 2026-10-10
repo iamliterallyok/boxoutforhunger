@@ -6,6 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta name="theme-color" content="#11110f">
   <title>Legal | Box Out For Hunger</title>
   <style>
@@ -23,18 +24,59 @@
     .contact{padding:3.5rem clamp(1.25rem,8vw,8rem);background:#11110f;color:#f5f2eb;border-top:.25rem solid var(--orange)}.contact-inner{max-width:75rem;margin:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem}.contact h2{margin:0 0 1rem;font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase}.contact p{margin:.35rem 0;font-family:Arial,sans-serif;letter-spacing:0;color:#d5d2ca}.contact a{color:#ff9a75}.contact-roles{display:grid;gap:.75rem;list-style:none;margin:0;padding:0}.contact-roles li{display:grid;align-self:start;gap:.125rem;font-family:Arial,sans-serif;letter-spacing:0}.contact-roles strong{font-family:Montserrat,Arial,sans-serif;font-weight:700}.contact-roles span{color:#d5d2ca}.contact-quicklinks-title{margin:1.5rem 0 .75rem;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:.01em;text-transform:uppercase;font-weight:900;line-height:1}.contact-quicklinks{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:1rem}.contact-quicklinks a{text-decoration:underline;text-underline-offset:.2em}@media(min-width:42.5625rem){.contact-inner>div{flex:1}.contact-roles{grid-template-columns:repeat(2,minmax(0,1fr));max-width:48rem}}
     @media(max-width:42.5rem){.hero{min-height:calc(100svh - 5.75rem);padding:1.5rem 1rem}.hero-lockup{gap:.75rem;text-align:left}.hero-logo{width:clamp(4rem,20vw,6rem)}.hero-copy{min-width:0}.hero-copy h1{font-size:clamp(2rem,9vw,3rem)}.hero-copy p{font-size:clamp(.875rem,3.7vw,1.125rem)}.section-inner{grid-template-columns:1fr;gap:1.5rem}.section-inner.reverse .section-copy,.section-inner.reverse .section-image{order:initial}.section-copy h2{font-size:2.75rem}.section-image{aspect-ratio:4/3}.partner-card{width:12rem;height:9rem}.contact-inner{align-items:flex-start;flex-direction:column}}
     .legal-section{padding:clamp(3rem,7vw,6rem) clamp(1.25rem,7vw,7rem);background:#e8e3d8;color:#171613}.legal-content{max-width:75rem;margin:auto}.legal-content>h1{margin:0 0 2.5rem;font-size:clamp(2.75rem,6vw,5rem);font-weight:900;line-height:.92}.legal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}.legal-card{padding:clamp(1.25rem,3vw,2rem);background:#25231f;color:#f5f2eb;border-top:.25rem solid #ff6b35}.legal-card h2{margin:0 0 .8rem;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:900;line-height:1.15}.legal-card p{margin:0;color:#d5d2ca;font:1rem/1.65 Arial,sans-serif;letter-spacing:0;text-transform:none}.legal-card p+p{margin-top:.8rem}.legal-card a{color:#ff9a75;text-decoration:underline;text-underline-offset:.15em}.legal-contact{display:grid;gap:.35rem;margin-top:.8rem;color:#d5d2ca;font:1rem/1.5 Arial,sans-serif;letter-spacing:0;text-transform:none}.legal-grid .legal-card:last-child{grid-column:1/-1}@media(max-width:42.5rem){.legal-grid{grid-template-columns:1fr}.legal-grid .legal-card:last-child{grid-column:auto}}
+      .toolbar{background:rgba(8,8,8,.62);-webkit-backdrop-filter:blur(18px) saturate(145%);backdrop-filter:blur(18px) saturate(145%);border-bottom:1px solid rgba(255,107,53,.58);box-shadow:0 .75rem 2rem #0007,inset 0 1px rgba(255,255,255,.07)}
+    .contact a{transition:color .2s ease,text-decoration-color .2s ease}.contact a:hover,.contact a:focus-visible{color:#fff;text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:.12em;text-underline-offset:.2em}
+    .contact-roles strong{font-family:'Inter',Arial,sans-serif}.contact-roles li>span:first-of-type,.contact-roles li>span:not(:first-of-type),.contact-roles li>span:not(:first-of-type) a{font-family:'Barlow Condensed','Arial Narrow',sans-serif}
+    a,button,[role="button"],summary{cursor:pointer}
+      /* Shared site theme */
+    :root{color-scheme:dark;--black:#080808;--white:#f6f6f4;--orange:#ff6b35;--line:#333;font-family:'Inter',Arial,sans-serif;letter-spacing:0}
+    body{background:#080808;color:var(--white);background-image:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:5rem 100%}
+    h1,h2,h3,.brand,.nav a,.contact-quicklinks-title{font-family:'Barlow Condensed','Arial Narrow',sans-serif}
+    .nav a:hover,.nav a:focus-visible{text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:.25em}
+    .announcements,.donate-page,.legal-section,.pressroom,.team-section{background:#0b0b0b;color:var(--white)}
+    .announcement,.lead-story,.press-sidebar,.press-sidebar-title,.legal-card,.give-card,.calendar-card,.team-card{background:#171717;color:var(--white);border-color:#383838}
+    .announcement,.lead-story,.legal-card,.give-card,.calendar-card,.team-card{border-top-color:var(--orange)}
+    .announcement:hover{box-shadow:0 .9rem 2rem #0008}
+    .announcement-body h2,.story-copy h2,.compact-story h3,.announcement-empty h2,.legal-card h2,.donate-heading h1,.give-card h2,.calendar-card h2,.upcoming-events h3,.team-heading h1,.team-card h2{color:var(--white);font-family:'Barlow Condensed','Arial Narrow',sans-serif}
+    .announcements-heading p,.announcement-summary,.announcement-details,.announcement-list-note,.announcement-empty p,.story-deck,.story-body,.compact-story p,.press-note,.team-heading p,.team-bio,.legal-card p,.legal-contact,.donate-heading p,.give-card p,.calendar-note,.schedule-empty,.event-list span{color:#d5d2ca;font-family:'Inter',Arial,sans-serif}
+    .announcement-meta,.story-meta,.pressroom-date,.announcement-list-note,.press-note{color:#bcb6aa}
+    .announcement-meta time,.pressroom-kicker,.compact-story time,.team-role,.donate-heading .eyebrow,.event-list strong{color:#ff9a75}
+    .announcement-toggle,.story-toggle,.story-source,.legal-card a,.schedule-empty a{color:#ff9a75}
+    .announcement-empty,.schedule-empty{background:#171717;border-color:#444;color:#d5d2ca}
+    .announcement-empty-mark{background:var(--orange);color:#080808}
+    .pressroom-masthead{border-color:var(--orange)}
+    .press-sidebar{border-top-color:var(--orange);border-bottom-color:#383838;scrollbar-color:var(--orange) #171717}
+    .press-sidebar-title{border-bottom-color:#383838}
+    .compact-story{border-color:#383838}
+    .story-meta .category{background:var(--orange);color:#080808}
+    .legal-card a{color:#ff9a75}
+    .team-card{box-shadow:0 .75rem 1.5rem #0006;transition:transform .2s ease,box-shadow .2s ease}
+    .team-card:hover{transform:translateY(-.3rem);box-shadow:0 1rem 2rem #0009}
+    .team-heading p,.team-bio,.announcement-summary,.announcement-details,.story-deck,.story-body,.compact-story p,.legal-card p,.legal-contact,.donate-heading p,.give-card p,.calendar-note,.schedule-empty,.event-list span{line-height:1.7}
+    .give-card{border-top-color:var(--orange)}
+    .venmo-button{background:var(--orange);color:#080808}
+    .venmo-button:hover,.venmo-button:focus-visible{background:#ff8357;color:#080808}
+    .calendar-controls button,.calendar-grid button,.calendar-links a,.calendar-links button{background:#242424;border-color:#555;color:var(--white)}
+    .calendar-grid button[aria-current="date"]{background:var(--orange);color:#080808}
+    .calendar-links a:hover,.calendar-links button:hover,.calendar-links button.copied{border-color:var(--orange);color:var(--orange)}
+    .calendar-links button.copied{background:var(--orange);color:#080808}
+      :root{--toolbar-height:max(12svh,5.5rem)}
+    main{margin-top:calc(0rem - var(--toolbar-height))}
+    main>.announcements,main>.donate-page,main>.legal-section,main>.pressroom,main>.team-section{padding-top:calc(var(--toolbar-height) + clamp(3rem,7vw,6rem))}
+    @media(max-aspect-ratio:1.2294/1),(max-width:42.5rem){:root{--toolbar-height:5.75rem}}
   </style>
+  <link rel="stylesheet" href="../site-theme.css">
 </head>
 <body>
   <header class="toolbar">
-    <a class="brand" href="../" aria-label="Box Out For Hunger home"><img class="brand-mark" src="../placeholder.svg" alt=""><span class="brand-name">BOX OUT FOR HUNGER<small>LOREM IPSUM DOLOR</small></span></a>
+    <a class="brand" href="../" aria-label="Box Out For Hunger home"><img class="brand-mark" src="../placeholder.svg" alt=""><span class="brand-name">BOX OUT FOR HUNGER<small>Never too Young to Make a Difference</small></span></a>
     <nav class="nav" id="site-nav" aria-label="Main navigation">
       <a href="../">Home</a>
       <a class="donate" href="../donate/">Donate</a>
       <a href="../announcements/">Announcements</a>
       <a href="../press/">Press</a>
       <a href="../team/">Our Team</a>
-      <a href="../legal/">Legal</a>
+      <a href="../legal/" aria-current="page">Legal</a>
     </nav>
     <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -55,16 +97,17 @@
     </section>
   </main>
   <footer class="contact" id="donate">
-    <div class="contact-inner"><div><h2>Contact</h2><ul class="contact-roles"><li><strong>Carr Davis Jennings</strong><span>Founder</span><span><a href="tel:+19193767768">919-376-7768</a> · <a href="mailto:jenningscarr@gmail.com">jenningscarr@gmail.com</a></span></li><li><strong>Davis Jennings</strong><span>Legal Representative</span></li><li><strong>John Corser</strong><span>Treasurer</span></li><li><strong>Jeremiah Adeyanju</strong><span>Co-Founder</span></li><li><strong>Asher Perry</strong><span>Co-Founder</span></li><li><strong>Charles Eyster</strong><span>Co-Founder</span></li></ul><h3 class="contact-quicklinks-title">Quick Links</h3><nav class="contact-quicklinks" aria-label="Quick links"><a href="../">Home</a><a href="../donate/">Donate</a><a href="../announcements/">Announcements</a><a href="../press/">Press</a><a href="../team/">Our Team</a><a href="../legal/">Legal</a></nav></div></div>
+    <div class="contact-inner"><div><h2>Contact</h2><ul class="contact-roles"><li><strong>Carr Davis Jennings</strong><span>Founder</span><span><a href="tel:+19193767768">919-376-7768</a> · <a href="mailto:jenningscarr@gmail.com">jenningscarr@gmail.com</a></span></li><li><strong>Davis Jennings</strong><span>Legal Representative</span></li><li><strong>Rebecca Halberg</strong><span>Secretary &amp; Vice President</span></li><li><strong>Jeremiah Adeyanju</strong><span>Co-Founder</span></li><li><strong>Asher Perry</strong><span>Co-Founder</span></li><li><strong>Charles Eyster</strong><span>Co-Founder</span></li><li><strong>Jon Corser</strong><span>Treasurer</span></li><li><strong>Owen Keller</strong><span>Programmer &amp; Designer</span></li></ul><h3 class="contact-quicklinks-title">Quick Links</h3><nav class="contact-quicklinks" aria-label="Quick links"><a href="../">Home</a><a href="../donate/">Donate</a><a href="../announcements/">Announcements</a><a href="../press/">Press</a><a href="../team/">Our Team</a><a href="../legal/" aria-current="page">Legal</a></nav></div></div>
   </footer>
   <script>
     const menuButton = document.querySelector('.menu-toggle');
     const siteNav = document.querySelector('#site-nav');
     const updateCurrentPage = () => {
-      const selected = location.pathname.endsWith('/') ? location.pathname.slice(0, -1) || '/' : location.pathname;
+      const normalizePath = pathname => pathname.replace(/\/index\.html$/i, '').replace(/\/+$/, '') || '/';
+      const selected = normalizePath(location.pathname);
       siteNav.querySelectorAll('a').forEach(link => {
         const linkPathname = new URL(link.href).pathname;
-        const linkPath = linkPathname.endsWith('/') ? linkPathname.slice(0, -1) || '/' : linkPathname;
+        const linkPath = normalizePath(linkPathname);
         if (linkPath === selected) link.setAttribute('aria-current', 'page');
         else link.removeAttribute('aria-current');
       });

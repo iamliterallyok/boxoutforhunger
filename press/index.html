@@ -6,6 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta name="theme-color" content="#11110f">
   <title>Press | Box Out For Hunger</title>
   <style>
@@ -25,11 +26,52 @@
     .story-image.has-photo{padding:0;overflow:hidden}.story-image.has-photo img{display:block;width:100%;height:clamp(14rem,30vw,25rem);object-fit:cover}
     .coming-soon{margin:0;padding:2rem 1.25rem;color:#625d54;font:italic 1rem/1.6 Arial,sans-serif;letter-spacing:0;text-transform:none}
     .pressroom{padding:clamp(2.5rem,6vw,5rem) clamp(1.25rem,8vw,8rem);background:#e8e3d8;color:#171613}.pressroom-inner{max-width:75rem;margin:auto}.pressroom-masthead{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;padding-bottom:1.25rem;border-bottom:.3rem solid #171613}.pressroom-masthead h1{margin:0;font-size:clamp(3rem,8vw,6.5rem);font-weight:900;line-height:.82;letter-spacing:-.055em}.pressroom-kicker{margin:0 0 .4rem;color:#b34828;font-size:.8rem;font-weight:800;letter-spacing:.16em}.pressroom-date{margin:0;color:#625d54;font:700 .78rem Arial,sans-serif;letter-spacing:.08em;text-align:right;text-transform:uppercase}.press-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(16rem,.8fr);gap:clamp(1.25rem,3vw,2.5rem);padding-top:2rem;align-items:start}.lead-story{background:#f5f2eb;border:1px solid #d1c9bb}.story-image{display:grid;place-items:center;min-height:clamp(14rem,30vw,25rem);padding:2rem;background:linear-gradient(145deg,#38352e,#191815);color:#ffb093;text-align:center;font-size:.8rem;font-weight:800;letter-spacing:.16em}.story-image img{width:100%;height:100%;object-fit:cover}.story-copy{padding:clamp(1.25rem,3vw,2.5rem)}.story-meta{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;margin-bottom:.9rem;color:#625d54;font-size:.72rem;font-weight:800;letter-spacing:.12em}.story-meta .category{padding:.4rem .55rem;background:#ff6b35;color:#171613}.story-copy h2{margin:0 0 1rem;font-size:clamp(1.75rem,3vw,2.8rem);font-weight:900;line-height:.98;letter-spacing:-.025em}.story-deck,.story-body{margin:0;color:#49453f;font:1.05rem/1.7 Arial,sans-serif;letter-spacing:0;text-transform:none}.story-body{display:none;margin-top:.8rem}.lead-story[aria-expanded="true"] .story-body{display:block}.story-toggle{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.25rem;padding:.8rem 0 0;border:0;background:none;color:#b34828;font:800 .78rem Montserrat,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.story-toggle::after{content:'→';font-size:1.2rem;transition:transform .2s}.story-toggle:hover::after{transform:translateX(.25rem)}.story-toggle:focus-visible{outline:3px solid #171613;outline-offset:4px}.story-source{display:inline-block;margin:1.25rem 0 0;color:#b34828;font:700 .78rem Montserrat,Arial,sans-serif;letter-spacing:.08em;text-decoration:underline;text-underline-offset:.2em}.press-sidebar{max-height:clamp(28rem,55vw,43rem);overflow-y:auto;border-top:.3rem solid #171613;border-bottom:1px solid #c9c1b4;background:#f5f2eb;scrollbar-color:#b34828 #e2ddd3;scrollbar-width:thin}.press-sidebar-title{position:sticky;top:0;z-index:1;margin:0;padding:1rem;background:#f5f2eb;border-bottom:1px solid #d1c9bb;font-size:1rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.compact-story{padding:1.15rem 1.25rem;border-bottom:1px solid #d1c9bb}.compact-story:last-child{border-bottom:0}.compact-story time{display:block;margin-bottom:.5rem;color:#b34828;font-size:.68rem;font-weight:800;letter-spacing:.12em}.compact-story h3{margin:0 0 .45rem;font-size:1.1rem;font-weight:900;line-height:1.15}.compact-story p{margin:0;color:#625d54;font: .92rem/1.5 Arial,sans-serif;letter-spacing:0;text-transform:none}.press-note{margin:1.5rem 0 0;color:#746d62;font:italic .9rem Arial,sans-serif;letter-spacing:0;text-transform:none}@media(max-width:48rem){.pressroom-masthead{align-items:flex-start;flex-direction:column}.pressroom-masthead h1{font-size:clamp(3rem,15vw,5rem)}.pressroom-date{text-align:left}.press-grid{grid-template-columns:1fr}.press-sidebar{max-height:24rem}}
+      .toolbar{background:rgba(8,8,8,.62);-webkit-backdrop-filter:blur(18px) saturate(145%);backdrop-filter:blur(18px) saturate(145%);border-bottom:1px solid rgba(255,107,53,.58);box-shadow:0 .75rem 2rem #0007,inset 0 1px rgba(255,255,255,.07)}
+    .contact a{transition:color .2s ease,text-decoration-color .2s ease}.contact a:hover,.contact a:focus-visible{color:#fff;text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:.12em;text-underline-offset:.2em}
+    .contact-roles strong{font-family:'Inter',Arial,sans-serif}.contact-roles li>span:first-of-type,.contact-roles li>span:not(:first-of-type),.contact-roles li>span:not(:first-of-type) a{font-family:'Barlow Condensed','Arial Narrow',sans-serif}
+    a,button,[role="button"],summary{cursor:pointer}
+      /* Shared site theme */
+    :root{color-scheme:dark;--black:#080808;--white:#f6f6f4;--orange:#ff6b35;--line:#333;font-family:'Inter',Arial,sans-serif;letter-spacing:0}
+    body{background:#080808;color:var(--white);background-image:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:5rem 100%}
+    h1,h2,h3,.brand,.nav a,.contact-quicklinks-title{font-family:'Barlow Condensed','Arial Narrow',sans-serif}
+    .nav a:hover,.nav a:focus-visible{text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:.25em}
+    .announcements,.donate-page,.legal-section,.pressroom,.team-section{background:#0b0b0b;color:var(--white)}
+    .announcement,.lead-story,.press-sidebar,.press-sidebar-title,.legal-card,.give-card,.calendar-card,.team-card{background:#171717;color:var(--white);border-color:#383838}
+    .announcement,.lead-story,.legal-card,.give-card,.calendar-card,.team-card{border-top-color:var(--orange)}
+    .announcement:hover{box-shadow:0 .9rem 2rem #0008}
+    .announcement-body h2,.story-copy h2,.compact-story h3,.announcement-empty h2,.legal-card h2,.donate-heading h1,.give-card h2,.calendar-card h2,.upcoming-events h3,.team-heading h1,.team-card h2{color:var(--white);font-family:'Barlow Condensed','Arial Narrow',sans-serif}
+    .announcements-heading p,.announcement-summary,.announcement-details,.announcement-list-note,.announcement-empty p,.story-deck,.story-body,.compact-story p,.press-note,.team-heading p,.team-bio,.legal-card p,.legal-contact,.donate-heading p,.give-card p,.calendar-note,.schedule-empty,.event-list span{color:#d5d2ca;font-family:'Inter',Arial,sans-serif}
+    .announcement-meta,.story-meta,.pressroom-date,.announcement-list-note,.press-note{color:#bcb6aa}
+    .announcement-meta time,.pressroom-kicker,.compact-story time,.team-role,.donate-heading .eyebrow,.event-list strong{color:#ff9a75}
+    .announcement-toggle,.story-toggle,.story-source,.legal-card a,.schedule-empty a{color:#ff9a75}
+    .announcement-empty,.schedule-empty{background:#171717;border-color:#444;color:#d5d2ca}
+    .announcement-empty-mark{background:var(--orange);color:#080808}
+    .pressroom-masthead{border-color:var(--orange)}
+    .press-sidebar{border-top-color:var(--orange);border-bottom-color:#383838;scrollbar-color:var(--orange) #171717}
+    .press-sidebar-title{border-bottom-color:#383838}
+    .compact-story{border-color:#383838}
+    .story-meta .category{background:var(--orange);color:#080808}
+    .legal-card a{color:#ff9a75}
+    .team-card{box-shadow:0 .75rem 1.5rem #0006;transition:transform .2s ease,box-shadow .2s ease}
+    .team-card:hover{transform:translateY(-.3rem);box-shadow:0 1rem 2rem #0009}
+    .team-heading p,.team-bio,.announcement-summary,.announcement-details,.story-deck,.story-body,.compact-story p,.legal-card p,.legal-contact,.donate-heading p,.give-card p,.calendar-note,.schedule-empty,.event-list span{line-height:1.7}
+    .give-card{border-top-color:var(--orange)}
+    .venmo-button{background:var(--orange);color:#080808}
+    .venmo-button:hover,.venmo-button:focus-visible{background:#ff8357;color:#080808}
+    .calendar-controls button,.calendar-grid button,.calendar-links a,.calendar-links button{background:#242424;border-color:#555;color:var(--white)}
+    .calendar-grid button[aria-current="date"]{background:var(--orange);color:#080808}
+    .calendar-links a:hover,.calendar-links button:hover,.calendar-links button.copied{border-color:var(--orange);color:var(--orange)}
+    .calendar-links button.copied{background:var(--orange);color:#080808}
+      :root{--toolbar-height:max(12svh,5.5rem)}
+    main{margin-top:calc(0rem - var(--toolbar-height))}
+    main>.announcements,main>.donate-page,main>.legal-section,main>.pressroom,main>.team-section{padding-top:calc(var(--toolbar-height) + clamp(3rem,7vw,6rem))}
+    @media(max-aspect-ratio:1.2294/1),(max-width:42.5rem){:root{--toolbar-height:5.75rem}}
   </style>
+  <link rel="stylesheet" href="../site-theme.css">
 </head>
 <body>
   <header class="toolbar">
-    <a class="brand" href="../" aria-label="Box Out For Hunger home"><img class="brand-mark" src="../placeholder.svg" alt=""><span class="brand-name">BOX OUT FOR HUNGER<small>LOREM IPSUM DOLOR</small></span></a>
+    <a class="brand" href="../" aria-label="Box Out For Hunger home"><img class="brand-mark" src="../placeholder.svg" alt=""><span class="brand-name">BOX OUT FOR HUNGER<small>Never too Young to Make a Difference</small></span></a>
     <nav class="nav" id="site-nav" aria-label="Main navigation">
       <a href="../">Home</a>
       <a class="donate" href="../donate/">Donate</a>
@@ -59,7 +101,7 @@
     </section>
   </main>
   <footer class="contact" id="donate">
-    <div class="contact-inner"><div><h2>Contact</h2><ul class="contact-roles"><li><strong>Carr Davis Jennings</strong><span>Founder</span><span><a href="tel:+19193767768">919-376-7768</a> · <a href="mailto:jenningscarr@gmail.com">jenningscarr@gmail.com</a></span></li><li><strong>Davis Jennings</strong><span>Legal Representative</span></li><li><strong>John Corser</strong><span>Treasurer</span></li><li><strong>Jeremiah Adeyanju</strong><span>Co-Founder</span></li><li><strong>Asher Perry</strong><span>Co-Founder</span></li><li><strong>Charles Eyster</strong><span>Co-Founder</span></li></ul><h3 class="contact-quicklinks-title">Quick Links</h3><nav class="contact-quicklinks" aria-label="Quick links"><a href="../">Home</a><a href="../donate/">Donate</a><a href="../announcements/">Announcements</a><a href="../press/">Press</a><a href="../team/">Our Team</a><a href="../legal/">Legal</a></nav></div></div>
+    <div class="contact-inner"><div><h2>Contact</h2><ul class="contact-roles"><li><strong>Carr Davis Jennings</strong><span>Founder</span><span><a href="tel:+19193767768">919-376-7768</a> · <a href="mailto:jenningscarr@gmail.com">jenningscarr@gmail.com</a></span></li><li><strong>Davis Jennings</strong><span>Legal Representative</span></li><li><strong>Rebecca Halberg</strong><span>Secretary &amp; Vice President</span></li><li><strong>Jeremiah Adeyanju</strong><span>Co-Founder</span></li><li><strong>Asher Perry</strong><span>Co-Founder</span></li><li><strong>Charles Eyster</strong><span>Co-Founder</span></li><li><strong>Jon Corser</strong><span>Treasurer</span></li><li><strong>Owen Keller</strong><span>Programmer &amp; Designer</span></li></ul><h3 class="contact-quicklinks-title">Quick Links</h3><nav class="contact-quicklinks" aria-label="Quick links"><a href="../">Home</a><a href="../donate/">Donate</a><a href="../announcements/">Announcements</a><a href="../press/" aria-current="page">Press</a><a href="../team/">Our Team</a><a href="../legal/">Legal</a></nav></div></div>
   </footer>
   <script>
     const menuButton = document.querySelector('.menu-toggle');
