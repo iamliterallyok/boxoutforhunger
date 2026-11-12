@@ -4,4 +4,13 @@ PRODID:-//Box Out For Hunger//Collection Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Box Out For Hunger Collections
+BEGIN:VEVENT
+UID:pro35-collection-20261111@boxoutforhunger
+DTSTAMP:20261111T170000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:Collection starts at Pro 3:5
+LOCATION:1810 Roundrock Dr\, Raleigh\, NC 27615
+DESCRIPTION:Collection begins November 11. Bring nonperishable food donations for Box Out For Hunger.\nPro 3:5\, 1810 Roundrock Dr\, Raleigh\, NC 27615
+END:VEVENT
 END:VCALENDAR
