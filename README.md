@@ -16,5 +16,3 @@ Each section is managed by a separate JSON file. Add another object to the array
 - Donate calendar: `donate/events.json` (date as `YYYY-MM-DD`, title, location, time)
 - Team members: `team/people.json` (name, role, optional bio, image/imageAlt or avatar colors)
 - Press posts: `press/articles.json` (order, category, date, dateTime, source, title, image, imageAlt, summary, url; optional teaser for sidebar items)
-
-Keep JSON valid: use double quotes around keys and text, and put commas between objects. The pages fetch these files, so preview through a web server (not by opening the HTML as a `file://` URL). Browsers block JSON fetches from pages opened directly from disk.
