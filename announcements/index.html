@@ -86,28 +86,7 @@
     <section class="announcements" aria-labelledby="page-title">
       <div class="announcements-inner">
         <div class="announcements-heading"><h1 id="page-title">Announcements</h1></div>
-        <div class="announcement-list" aria-label="Announcements, newest to oldest">
-          <article class="announcement" aria-expanded="false">
-            <div class="announcement-media"><img src="../IMG_8410%20(1).png" alt="Photo from the Box Out For Hunger collection at Pro 3:5" loading="lazy"></div>
-            <div class="announcement-body"><div class="announcement-meta"><time datetime="2026-11-11">November 11, 2026</time><span>Collection · Pro 3:5</span></div><h2>Collection at Pro 3:5</h2><p class="announcement-summary">Starting November 11, help Box Out For Hunger collect nonperishable food for local families. Bring donations to Pro 3:5, 1810 Roundrock Dr, Raleigh, NC 27615.</p><p class="announcement-details">Every donation helps support neighbors facing food insecurity. Thank you for giving back with us.</p><button class="announcement-toggle" type="button" aria-expanded="false">Read announcement</button></div>
-          </article>
-          <!-- Add future announcements here, newest first. Copy an article card and update its date, title, image, alt text, summary, and details. -->
-          <!-- To add an image, replace the announcement-placeholder div with an img element and descriptive alt text. -->
-          <!-- Placeholder announcement cards. Remove the comment markers around these cards when you're ready to publish them.
-          <article class="announcement" aria-expanded="false">
-            <div class="announcement-media"><div class="announcement-placeholder" role="img" aria-label="Image placeholder for the latest announcement">Add announcement image</div></div>
-            <div class="announcement-body"><div class="announcement-meta"><time datetime="2026-10-01">October 1, 2026</time><span>Community update</span></div><h2>Our next chapter starts here</h2><p class="announcement-summary">This space is ready for your latest updates. Share a milestone, an upcoming event, or a note about the people making this work possible.</p><p class="announcement-details">Add the full announcement here. You can include any relevant details, such as event dates, locations, registration links, partner information, or a thank-you to the community.</p><button class="announcement-toggle" type="button" aria-expanded="false">Read announcement</button></div>
-          </article>
-          <article class="announcement" aria-expanded="false">
-            <div class="announcement-media"><div class="announcement-placeholder" role="img" aria-label="Image placeholder for a community event announcement">Add announcement image</div></div>
-            <div class="announcement-body"><div class="announcement-meta"><time datetime="2026-08-15">August 15, 2026</time><span>Events</span></div><h2>Join us for a day of giving back</h2><p class="announcement-summary">Use this card to introduce a volunteer opportunity, community gathering, or upcoming fundraiser.</p><p class="announcement-details">Add the complete event information here, including when and where it takes place, who can attend, and how people can participate.</p><button class="announcement-toggle" type="button" aria-expanded="false">Read announcement</button></div>
-          </article>
-          <article class="announcement" aria-expanded="false">
-            <div class="announcement-media"><div class="announcement-placeholder" role="img" aria-label="Image placeholder for an earlier announcement">Add announcement image</div></div>
-            <div class="announcement-body"><div class="announcement-meta"><time datetime="2026-06-02">June 2, 2026</time><span>Our mission</span></div><h2>A community effort making a difference</h2><p class="announcement-summary">Save this spot for a past update, a partner highlight, or a story about the impact of your work.</p><p class="announcement-details">Add supporting information, context, and any relevant links here. Keep older announcements below newer ones as you add to the page.</p><button class="announcement-toggle" type="button" aria-expanded="false">Read announcement</button></div>
-          </article>
-          Keep the oldest announcement at the bottom of this list. -->
-        </div>
+        <div class="announcement-list" id="announcement-list" aria-label="Announcements, newest to oldest"></div>
       </div>
     </section>
   </main>
@@ -140,15 +119,27 @@
       menuButton.setAttribute('aria-expanded', 'false');
       menuButton.setAttribute('aria-label', 'Open navigation menu');
     }));
-    document.querySelectorAll('.announcement-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const article = button.closest('.announcement');
-        const expanded = article.getAttribute('aria-expanded') !== 'true';
-        article.setAttribute('aria-expanded', String(expanded));
-        button.setAttribute('aria-expanded', String(expanded));
-        button.textContent = expanded ? 'Close announcement' : 'Read announcement';
-      });
-    });
+    const announcementList = document.querySelector('#announcement-list');
+    fetch('./announcements.json')
+      .then(response => { if (!response.ok) throw new Error('Announcements could not be loaded'); return response.json(); })
+      .then(items => items.sort((a, b) => b.date.localeCompare(a.date)).forEach(item => {
+        const article = document.createElement('article'); article.className = 'announcement'; article.setAttribute('aria-expanded', 'false');
+        const media = document.createElement('div'); media.className = 'announcement-media';
+        if (item.image) { const image = document.createElement('img'); image.src = item.image; image.alt = item.imageAlt || ''; image.loading = 'lazy'; media.append(image); }
+        else { const placeholder = document.createElement('div'); placeholder.className = 'announcement-placeholder'; placeholder.textContent = 'Announcement'; media.append(placeholder); }
+        const body = document.createElement('div'); body.className = 'announcement-body';
+        const meta = document.createElement('div'); meta.className = 'announcement-meta';
+        const time = document.createElement('time'); time.dateTime = item.date; time.textContent = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(new Date(item.date + 'T00:00:00'));
+        const label = document.createElement('span'); label.textContent = [item.category, item.location].filter(Boolean).join(' · '); meta.append(time, label);
+        const title = document.createElement('h2'); title.textContent = item.title;
+        const summary = document.createElement('p'); summary.className = 'announcement-summary'; summary.textContent = item.summary;
+        body.append(meta, title, summary);
+        if (item.details) { const details = document.createElement('p'); details.className = 'announcement-details'; details.textContent = item.details; body.append(details); }
+        const toggle = document.createElement('button'); toggle.className = 'announcement-toggle'; toggle.type = 'button'; toggle.setAttribute('aria-expanded', 'false'); toggle.textContent = 'Read announcement';
+        toggle.addEventListener('click', () => { const expanded = article.getAttribute('aria-expanded') !== 'true'; article.setAttribute('aria-expanded', String(expanded)); toggle.setAttribute('aria-expanded', String(expanded)); toggle.textContent = expanded ? 'Close announcement' : 'Read announcement'; });
+        body.append(toggle); article.append(media, body); announcementList.append(article);
+      }))
+      .catch(error => { console.error(error); announcementList.textContent = 'Announcements could not be loaded. Open this page through the website server, not directly as a file.'; });
   </script>
 </body>
 </html>

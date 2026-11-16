@@ -106,23 +106,9 @@
   <script>
     const menuButton = document.querySelector('.menu-toggle');
     const siteNav = document.querySelector('#site-nav');
-    // Add each article here. The largest numeric order is featured; remaining stories sort high to low.
-    // Increase an article's order to feature it. Use unique numeric values to control the story order.
-    const pressArticles = [
-      // Copy this object to add another article, then update its fields and numeric order.
-      {
-        order: 100,
-        category: 'Community',
-        date: '2026',
-        dateTime: '2026',
-        source: 'North Raleigh Christian Academy',
-        title: 'Boxing Out Hunger One Donation at a Time',
-        image: '../article1.avif',
-        imageAlt: 'Box Out For Hunger feature article cover',
-        summary: 'Combining their love of basketball with compassion for community members struggling with food insecurity, NRCA juniors Carr Jennings and his friends Jeremiah Adeyanju, Asher Perry, and Charles Eyster decided to serve together. The four took collection boxes to their local community and AAU basketball tournaments this summer, where donations of nonperishables flooded in.',
-        url: 'https://www.nrcaknights.com/post/boxing-out-hunger-one-donation-at-a-time'
-      }
-    ];
+    fetch('./articles.json')
+      .then(response => { if (!response.ok) throw new Error('Press posts could not be loaded'); return response.json(); })
+      .then(pressArticles => {
     const sortedArticles = [...pressArticles].sort((a, b) => Number(b.order) - Number(a.order));
     const createText = (tag, className, text) => {
       const element = document.createElement(tag);
@@ -169,6 +155,8 @@
       });
       if (sortedArticles.length > 1) comingSoon.hidden = true;
     }
+      })
+      .catch(error => { console.error(error); document.querySelector('#featured-story').textContent = 'Press posts could not be loaded.'; });
     const updateCurrentPage = () => {
       const pagePath = location.pathname.replace(/\/index\.html$/i, '/');
       const selected = pagePath.endsWith('/') ? pagePath.slice(0, -1) || '/' : pagePath;

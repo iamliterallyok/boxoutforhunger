@@ -87,17 +87,7 @@
     <section class="team-section" aria-labelledby="page-title">
       <div class="team-inner">
         <header class="team-heading"><h1 id="page-title">Our Team</h1><p>Meet the people helping Box Out For Hunger serve our community.</p></header>
-        <div class="team-grid">
-          <!-- Replace each avatar illustration with <img class="team-avatar" src="../path/to/photo.jpg" alt="Name"> and update each placeholder name, role, and bio. -->
-          <article class="team-card"><img class="team-avatar" src="../IMG_0609.jpg" alt="Carr at a Box Out For Hunger service event"><h2>Carr Davis Jennings</h2><p class="team-role">Founder</p><p class="team-bio">As the founder of Box Out for Hunger, I am passionate about using basketball to fight food insecurity and give back to my community. My goal is to bring people together to support families in need and make a lasting impact through service.</p></article>
-          <article class="team-card"><svg class="team-avatar team-avatar-art" viewBox="0 0 120 120" role="img" aria-label="Profile photo placeholder" style="background:#9a754b"><circle cx="60" cy="43" r="22" fill="#edc6a4"/><path d="M17 120c2-31 18-48 43-48s41 17 43 48" fill="#25231f"/><path d="M36 42c0-21 12-33 27-32 17 1 23 15 21 34-8-9-16-13-25-14-6 6-13 10-23 12" fill="#40302a"/></svg><h2>Jeremiah Adeyanju</h2><p class="team-role">associate</p><p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></article>
-          <article class="team-card"><img class="team-avatar" src="../IMG_0610.jpg" alt="Charles at a Box Out For Hunger service event"><h2>Charles Eyster</h2><p class="team-role">associate</p><p class="team-bio">I am a high school student passionate about serving others, making a positive impact in my community, and using my skills to help those in need. Through Box Out for Hunger, I hope to make a lasting difference and inspire others to give back.</p></article>
-          <article class="team-card"><svg class="team-avatar team-avatar-art" viewBox="0 0 120 120" role="img" aria-label="Profile photo placeholder" style="background:#537e91"><circle cx="60" cy="43" r="22" fill="#a96f50"/><path d="M17 120c2-31 18-48 43-48s41 17 43 48" fill="#25231f"/><path d="M37 43c-1-21 11-33 25-33 17 0 24 14 21 34-8-8-16-12-25-14-5 7-12 11-21 13" fill="#24201e"/></svg><h2>Asher Perry</h2><p class="team-role">associate</p><p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></article>
-          <article class="team-card team-card-compact"><h2>Davis Jennings</h2><p class="team-role">Legal Representative</p></article>
-          <article class="team-card team-card-compact"><h2>Rebecca Halberg</h2><p class="team-role">Secretary &amp; Vice President</p></article>
-          <article class="team-card team-card-compact"><h2>Jon Corser</h2><p class="team-role">Treasurer</p></article>
-          <article class="team-card team-card-compact"><h2>Owen Keller</h2><p class="team-role">associate</p></article>
-        </div>
+        <div class="team-grid" id="team-grid"></div>
       </div>
     </section>
   </main>
@@ -107,6 +97,36 @@
   <script>
     const menuButton = document.querySelector('.menu-toggle');
     const siteNav = document.querySelector('#site-nav');
+    const teamGrid = document.querySelector('#team-grid');
+    const appendSvgNode = (parent, tag, attributes) => {
+      const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      Object.entries(attributes).forEach(([name, value]) => node.setAttribute(name, value));
+      parent.append(node);
+      return node;
+    };
+    fetch('./people.json')
+      .then(response => { if (!response.ok) throw new Error('Team members could not be loaded'); return response.json(); })
+      .then(people => people.forEach(person => {
+        const card = document.createElement('article');
+        card.className = person.bio ? 'team-card' : 'team-card team-card-compact';
+        if (person.image) {
+          const image = document.createElement('img');
+          image.className = 'team-avatar'; image.src = person.image; image.alt = person.imageAlt || person.name; card.append(image);
+        } else if (person.avatar) {
+          const avatar = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          avatar.classList.add('team-avatar', 'team-avatar-art'); avatar.setAttribute('viewBox', '0 0 120 120'); avatar.setAttribute('role', 'img'); avatar.setAttribute('aria-label', 'Profile illustration');
+          avatar.style.background = person.avatar.background;
+          appendSvgNode(avatar, 'circle', { cx: 60, cy: 43, r: 22, fill: person.avatar.skin });
+          appendSvgNode(avatar, 'path', { d: 'M17 120c2-31 18-48 43-48s41 17 43 48', fill: '#25231f' });
+          appendSvgNode(avatar, 'path', { d: 'M36 42c0-21 12-33 27-32 17 1 23 15 21 34-8-9-16-13-25-14-6 6-13 10-23 12', fill: person.avatar.hair });
+          card.append(avatar);
+        }
+        const name = document.createElement('h2'); name.textContent = person.name; card.append(name);
+        const role = document.createElement('p'); role.className = 'team-role'; role.textContent = person.role; card.append(role);
+        if (person.bio) { const bio = document.createElement('p'); bio.className = 'team-bio'; bio.textContent = person.bio; card.append(bio); }
+        teamGrid.append(card);
+      }))
+      .catch(error => { console.error(error); teamGrid.textContent = 'Team members could not be loaded. Open this page through the website server, not directly as a file.'; });
     const updateCurrentPage = () => {
       const normalizePath = pathname => pathname.replace(/\/index\.html$/i, '').replace(/\/+$/, '') || '/';
       const selected = normalizePath(location.pathname);

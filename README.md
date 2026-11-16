@@ -7,3 +7,14 @@
 
 &emsp;We started Box Out for Hunger because we wanted to find a way to give back to our community through something we love: basketball. We realized that basketball could be more than just a sport. It could be a way to bring people together and help make a difference in the lives of others.\
 &emsp;Our mission is to use our love of basketball to help families facing food insecurity. By going to local food drives and working with local sports organizations to collect non perishable goods, we hope to encourage others to give back and support people in need. We want Box Out for Hunger to show that even small acts of kindness can have a big impact on a community and that your age doesn’t define how much you can give back to your community.
+
+## Updating site posts and events
+
+Each section is managed by a separate JSON file. Add another object to the array to add an item:
+
+- Announcements: `announcements/announcements.json` (date, category, location, title, image, imageAlt, summary, details)
+- Donate calendar: `donate/events.json` (date as `YYYY-MM-DD`, title, location, time)
+- Team members: `team/people.json` (name, role, optional bio, image/imageAlt or avatar colors)
+- Press posts: `press/articles.json` (order, category, date, dateTime, source, title, image, imageAlt, summary, url; optional teaser for sidebar items)
+
+Keep JSON valid: use double quotes around keys and text, and put commas between objects. The pages fetch these files, so preview through a web server (not by opening the HTML as a `file://` URL). Browsers block JSON fetches from pages opened directly from disk.

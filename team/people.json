@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Carr Davis Jennings",
+    "role": "Founder",
+    "bio": "As the founder of Box Out for Hunger, I am passionate about using basketball to fight food insecurity and give back to my community. My goal is to bring people together to support families in need and make a lasting impact through service.",
+    "image": "../IMG_0609.jpg",
+    "imageAlt": "Carr at a Box Out For Hunger service event"
+  },
+  {
+    "name": "Jeremiah Adeyanju",
+    "role": "associate",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "avatar": { "background": "#9a754b", "skin": "#edc6a4", "hair": "#40302a" }
+  },
+  {
+    "name": "Charles Eyster",
+    "role": "associate",
+    "bio": "I am a high school student passionate about serving others, making a positive impact in my community, and using my skills to help those in need. Through Box Out for Hunger, I hope to make a lasting difference and inspire others to give back.",
+    "image": "../IMG_0610.jpg",
+    "imageAlt": "Charles at a Box Out For Hunger service event"
+  },
+  {
+    "name": "Asher Perry",
+    "role": "associate",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "avatar": { "background": "#537e91", "skin": "#a96f50", "hair": "#24201e" }
+  },
+  { "name": "Davis Jennings", "role": "Legal Representative" },
+  { "name": "Rebecca Halberg", "role": "Secretary & Vice President" },
+  { "name": "Jon Corser", "role": "Treasurer" },
+  { "name": "Owen Keller", "role": "associate" }
+]
