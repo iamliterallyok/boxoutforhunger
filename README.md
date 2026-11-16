@@ -10,7 +10,7 @@
 
 ## Updating site posts and events
 
-Each section is managed by a separate JSON file. Add another object to the array to add an item:
+Each section is managed by a separate JSON file.
 
 - Announcements: `announcements/announcements.json` (date, category, location, title, image, imageAlt, summary, details)
 - Donate calendar: `donate/events.json` (date as `YYYY-MM-DD`, title, location, time)
