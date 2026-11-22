@@ -13,6 +13,6 @@
 Each section is managed by a separate JSON file.
 
 - Announcements: `announcements/announcements.json` (date, category, location, title, image, imageAlt, summary, details)
-- Donate calendar: `donate/events.json` (date as `YYYY-MM-DD`, title, location, time)
+- Donate calendar: `donate/events.json` (`calendarNames` defines the labels for `startDate`, `anyDate`, and `endDate`; `events` contains items with `startDate` and optional `endDate` as `YYYY-MM-DD`, plus title, location, and time. Events with an end date appear on every day through that date; events without one appear daily through the current date.)
 - Team members: `team/people.json` (name, role, optional bio, image/imageAlt or avatar colors)
 - Press posts: `press/articles.json` (order, category, date, dateTime, source, title, image, imageAlt, summary, url; optional teaser for sidebar items)

@@ -117,6 +117,8 @@
     const eventList = document.querySelector('#event-list');
     const upcomingEventList = document.querySelector('#upcoming-event-list');
     let collectionEvents = [];
+    let calendarNames = { startDate: 'Collection Start', anyDate: 'Collection Day', endDate: 'Collection End' };
+    const occursOn = (event, dateKey) => event.occurrenceDate === dateKey;
     let displayedMonth = new Date();
     const renderCalendar = () => {
       const year = displayedMonth.getFullYear();
@@ -132,7 +134,9 @@
       for (let day=1;day<=count;day++) {
         const date = new Date(year, month, day);
         const dateKey = `${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-        const events = collectionEvents.filter(event => event.date === dateKey);
+        const today = new Date();
+        const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+        const events = collectionEvents.filter(event => occursOn(event, dateKey));
         const button = document.createElement('button'); button.type='button'; button.textContent=String(day); button.setAttribute('role','gridcell'); button.dataset.date=dateKey;
         button.setAttribute('aria-label', `${new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric'}).format(date)}${events.length ? `, ${events.length} collection${events.length===1?'':'s'}` : ''}`);
         if (date.toDateString() === new Date().toDateString()) button.setAttribute('aria-current','date');
@@ -149,17 +153,16 @@
     const renderUpcomingEvents = () => {
       upcomingEventList.replaceChildren();
       const today = new Date(); today.setHours(0,0,0,0);
-      const upcoming = collectionEvents.filter(event => {
-        const [year, month, day] = event.date.split('-').map(Number);
-        return new Date(year, month - 1, day) >= today;
-      }).sort((a,b) => a.date.localeCompare(b.date));
+      const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      const upcoming = collectionEvents.filter(event => event.occurrenceDate >= todayKey)
+        .sort((a,b) => a.occurrenceDate.localeCompare(b.occurrenceDate));
       if (!upcoming.length) {
         const empty = document.createElement('li'); empty.className='schedule-empty'; empty.textContent='No upcoming events have been posted yet.'; upcomingEventList.append(empty); return;
       }
       upcoming.forEach(event => {
         const item=document.createElement('li'); const title=document.createElement('strong');
-        const [year,month,day]=event.date.split('-').map(Number);
-        title.textContent=`${new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric'}).format(new Date(year,month-1,day))} · ${event.title}`;
+        const [year,month,day]=event.occurrenceDate.split('-').map(Number);
+        title.textContent=`${new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric'}).format(new Date(year,month-1,day))} · ${event.calendarName}: ${event.title}`;
         const detail=document.createElement('span'); detail.textContent=`${event.location} · ${event.time}`;
         item.append(title,detail); upcomingEventList.append(item);
       });
@@ -171,7 +174,9 @@
         button.setAttribute('aria-selected', String(selected));
       });
       eventList.replaceChildren();
-      const events = collectionEvents.filter(event => !dateKey || event.date === dateKey);
+      const today = new Date();
+      const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      const events = collectionEvents.filter(event => !dateKey || occursOn(event, dateKey));
       if (!events.length) {
         const empty = document.createElement('li'); empty.className='schedule-empty';
         if (dateKey) {
@@ -181,7 +186,7 @@
         } else empty.textContent = 'No collection events are currently listed.';
         eventList.append(empty); return;
       }
-      events.forEach(event => { const item=document.createElement('li');const title=document.createElement('strong');title.textContent=event.title;const detail=document.createElement('span');detail.textContent=`${event.location} · ${event.time}`;item.append(title,detail);eventList.append(item); });
+      events.forEach(event => { const item=document.createElement('li');const title=document.createElement('strong');title.textContent=`${event.calendarName}: ${event.title}`;const detail=document.createElement('span');detail.textContent=`${event.location} · ${event.time}`;item.append(title,detail);eventList.append(item); });
     };
     document.querySelector('#previous-month').addEventListener('click',()=>{displayedMonth=new Date(displayedMonth.getFullYear(),displayedMonth.getMonth()-1,1);renderCalendar();});
     document.querySelector('#next-month').addEventListener('click',()=>{displayedMonth=new Date(displayedMonth.getFullYear(),displayedMonth.getMonth()+1,1);renderCalendar();});
@@ -199,7 +204,25 @@
       try {
         const response = await fetch('./events.json', { cache: 'no-store' });
         if (!response.ok) throw new Error('Events could not be loaded');
-        collectionEvents = await response.json();
+        const data = await response.json();
+        calendarNames = { ...calendarNames, ...(data.calendarNames || {}) };
+        const sourceEvents = Array.isArray(data) ? data : (data.events || []);
+        const today = new Date(); today.setHours(0,0,0,0);
+        const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+        collectionEvents = sourceEvents.flatMap(event => {
+          if (!/^\d{4}-\d{2}-\d{2}$/.test(event.startDate || '')) return [];
+          const lastDate = event.endDate || todayKey;
+          if (lastDate < event.startDate) return [];
+          const occurrences = [];
+          for (let cursor = new Date(`${event.startDate}T00:00:00Z`), end = new Date(`${lastDate}T00:00:00Z`); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) {
+            const occurrenceDate = cursor.toISOString().slice(0, 10);
+            const calendarName = occurrenceDate === event.startDate
+              ? calendarNames.startDate
+              : event.endDate && occurrenceDate === event.endDate ? calendarNames.endDate : calendarNames.anyDate;
+            occurrences.push({ ...event, occurrenceDate, calendarName });
+          }
+          return occurrences;
+        });
       } catch (error) { console.error('Could not load collection events:', error); }
       renderCalendar();
     };
